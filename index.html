@@ -15,7 +15,6 @@
       --text:#111;
       --shadow:0 3px 10px rgba(0,0,0,.08);
     }
-
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -23,109 +22,90 @@
       background:var(--bg);
       color:var(--text);
     }
-
     .app{
-      max-width:980px;
+      max-width:1180px;
       margin:0 auto;
-      padding:6px 8px 8px;
+      padding:10px 12px 14px;
     }
-
     .title{
       width:100%;
       background:var(--orange);
       color:#fff;
       border:2px solid var(--line);
-      border-radius:22px;
+      border-radius:24px;
       text-align:center;
-      font-size:1.45rem;
+      font-size:1.9rem;
       font-weight:800;
-      padding:10px 8px;
+      padding:18px 10px;
       box-shadow:var(--shadow);
-      margin-bottom:6px;
+      margin-bottom:12px;
       line-height:1.1;
     }
-
-    .hero{
-      margin:0 0 6px 0;
-    }
-
+    .hero{ margin:0 0 14px; }
     .speech{
       position:relative;
       background:var(--cream);
       border:2px solid #252525;
-      border-radius:20px;
-      min-height:64px;
+      border-radius:24px;
+      min-height:110px;
       display:flex;
       align-items:center;
-      padding:10px 12px;
-      font-size:.78rem;
-      line-height:1.35;
+      padding:14px 18px;
+      font-size:.95rem;
+      line-height:1.45;
       box-shadow:var(--shadow);
     }
-
     .speech::before{
       content:"";
       position:absolute;
-      left:-26px;
-      bottom:18px;
+      left:-54px;
+      bottom:22px;
       width:0;
       height:0;
-      border-top:10px solid transparent;
-      border-bottom:10px solid transparent;
-      border-right:26px solid var(--cream);
+      border-top:16px solid transparent;
+      border-bottom:16px solid transparent;
+      border-right:54px solid var(--cream);
       filter:drop-shadow(-2px 0 0 #252525);
     }
-
     .grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px 12px;
-      padding:2px 26px 4px;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:22px 46px;
+      padding:6px 54px 10px;
     }
-
     .topic-btn{
       width:100%;
-      min-height:38px;
-      border:2px solid var(--line);
-      border-radius:12px;
+      min-height:52px;
+      border:1.8px solid var(--line);
+      border-radius:14px;
       background:#dddddf;
-      font-size:.76rem;
+      font-size:.88rem;
       font-weight:800;
       cursor:pointer;
       box-shadow:var(--shadow);
-      padding:6px 8px;
+      padding:8px 10px;
       transition:transform .12s ease, background .18s ease;
     }
-
-    .topic-btn:hover{
-      transform:translateY(-1px);
-      background:#e8e8eb;
-    }
-
-    .topic-btn.active{
-      background:var(--blue);
-      color:#fff;
-      border-color:var(--blue-dark);
-    }
-
+    .topic-btn:hover{ transform:translateY(-1px); background:#e8e8eb; }
+    .topic-btn.active{ background:var(--blue); color:#fff; border-color:var(--blue-dark); }
     .result-box{
-      margin-top:6px;
+      margin-top:10px;
       background:#f7f8fb;
       border:1.5px solid #d6dbe3;
-      border-radius:14px;
-      padding:10px 12px;
-      min-height:96px;
+      border-radius:16px;
+      padding:12px 14px;
+      min-height:110px;
       box-shadow:var(--shadow);
-      font-size:.8rem;
-      line-height:1.35;
+      font-size:.86rem;
+      line-height:1.38;
+      display:none;
     }
-
+    .result-box.show{ display:block; }
     .result-box h3{
       margin:0 0 6px;
-      font-size:.88rem;
+      font-size:.95rem;
       color:#204b8d;
     }
-
     .quote{
       border-left:3px solid #58a7b9;
       padding:6px 8px;
@@ -134,130 +114,64 @@
       font-style:italic;
       color:#444;
     }
-
     .bottom{
       display:grid;
-      grid-template-columns:1fr 118px;
-      gap:8px;
-      margin-top:8px;
+      grid-template-columns:1fr 172px;
+      gap:14px;
+      margin-top:18px;
+      align-items:stretch;
     }
-
     .input-box{
       background:var(--cream);
       border:2px solid var(--line);
-      border-radius:16px;
-      min-height:46px;
+      border-radius:20px;
+      min-height:70px;
       box-shadow:var(--shadow);
       display:flex;
       align-items:center;
-      padding:8px 10px;
+      padding:10px 14px;
     }
-
     textarea{
       width:100%;
-      min-height:24px;
+      min-height:42px;
       resize:none;
       border:none;
       outline:none;
       background:transparent;
-      font-size:.78rem;
+      font-size:.92rem;
       font-family:inherit;
       color:var(--text);
     }
-
     .send-btn{
       background:var(--orange);
       color:#fff;
       border:2px solid var(--line);
-      border-radius:16px;
-      min-height:46px;
-      font-size:.82rem;
+      border-radius:18px;
+      min-height:70px;
+      font-size:.96rem;
       font-weight:800;
       cursor:pointer;
       box-shadow:var(--shadow);
-      letter-spacing:.3px;
+      letter-spacing:.4px;
     }
-
-    .send-btn:hover{
-      filter:brightness(1.03);
-    }
-
+    .send-btn:hover{ filter:brightness(1.03); }
     .note{
-      padding:4px 2px 0;
-      font-size:.68rem;
+      padding:6px 2px 0;
+      font-size:.72rem;
       color:#333;
       text-align:center;
     }
-
-    @media (max-width:700px){
-      .title{
-        font-size:1.1rem;
-        padding:9px 6px;
-      }
-      .grid{
-        padding:2px 6px 4px;
-        gap:8px;
-      }
-      .topic-btn{
-        min-height:36px;
-        font-size:.72rem;
-      }
-      .speech{
-        font-size:.74rem;
-        min-height:60px;
-        padding:8px 10px;
-      }
-      .bottom{
-        grid-template-columns:1fr 100px;
-      }
-      .send-btn{
-        font-size:.78rem;
-      }
+    @media (max-width:900px){
+      .title{ font-size:1.45rem; padding:14px 8px; }
+      .grid{ grid-template-columns:1fr 1fr; padding:6px 12px 8px; gap:12px; }
+      .speech{ font-size:.84rem; }
+      .bottom{ grid-template-columns:1fr 132px; gap:10px; }
     }
-      .grid{
-        padding:4px 10px 8px;
-        gap:10px;
-      }
-      .topic-btn{
-        min-height:48px;
-        font-size:.86rem;
-      }
-      .speech{
-        font-size:.84rem;
-        min-height:86px;
-        padding:12px 14px;
-      }
-      .bottom{
-        grid-template-columns:1fr 130px;
-      }
-      .send-btn{
-        font-size:.9rem;
-      }
-    }
-
-    @media (max-width:520px){
-      .grid{
-        grid-template-columns:1fr;
-      }
-      .bottom{
-        grid-template-columns:1fr;
-      }
-      .speech::before{
-        display:none;
-      }
-      .title{
-        font-size:1rem;
-      }
-    }
-      .bottom{
-        grid-template-columns:1fr;
-      }
-      .speech::before{
-        display:none;
-      }
-      .title{
-        font-size:1.2rem;
-      }
+    @media (max-width:620px){
+      .grid{ grid-template-columns:1fr; }
+      .bottom{ grid-template-columns:1fr; }
+      .speech::before{ display:none; }
+      .title{ font-size:1.15rem; }
     }
   </style>
 </head>
@@ -270,7 +184,7 @@
         <div>
           <strong>Merhaba!</strong><br>
           Kutup hayvanlarının hayatta kalma stratejilerini fabl temasına dönüştürmene yardımcı olabilirim.<br>
-          Aşağıdaki stratejilerden birini seçebilir ya da alttan bir hayvan / tema yazabilirsin.
+          Aşağıdaki stratejilerden birini seçebilirsin.
         </div>
       </div>
     </section>
@@ -278,24 +192,22 @@
     <section class="grid">
       <button class="topic-btn" data-topic="yön bulma ve alan okuma">Yön Bulma ve Alan Okuma</button>
       <button class="topic-btn" data-topic="topluluk ve iş birliği">Topluluk ve İş Birliği</button>
-      <button class="topic-btn" data-topic="besin yönetimi ve sabır">Besin Yönetimi ve Sabır</button>
       <button class="topic-btn" data-topic="göç ve hareket">Göç ve Hareket</button>
-      <button class="topic-btn" data-topic="kamuflaj ve uyum">Kamuflaj ve Uyum</button>
+      <button class="topic-btn" data-topic="besin yönetimi ve sabır">Besin Yönetimi ve Sabır</button>
       <button class="topic-btn" data-topic="sessizlik ve enerji yönetimi">Sessizlik ve Enerji Yönetimi</button>
       <button class="topic-btn" data-topic="riskten kaçınma ve çekilme">Riskten Kaçınma ve Çekilme</button>
-      <button class="topic-btn" data-topic="karakter öner">Karakter Önerisi</button>
     </section>
 
     <section class="result-box" id="resultBox"></section>
 
     <section class="bottom">
       <div class="input-box">
-        <textarea id="userInput" placeholder="Hangi temada rehberlik istersiniz?"></textarea>
+        <textarea id="userInput" placeholder="Bir tema ya da hayvan adı yaz..."></textarea>
       </div>
       <button class="send-btn" id="sendBtn">GÖNDER</button>
     </section>
 
-    <div class="note" id="extraNote">Bir tema adı ya da hayvan adı yazabilirsin: kutup ayısı, beyaz tilki, göç, kamuflaj, iş birliği...</div>
+    <div class="note" id="extraNote">Tema seçebilir ya da kutup ayısı, beyaz tilki, fok, narval gibi bir hayvan adı yazabilirsin.</div>
   </div>
 
   <script>
@@ -306,7 +218,7 @@
         characters: "Beyaz Tilki, Kar Baykuşu, Ren Geyiği veya Narval",
         concepts: "Dikkat, Sezgi, Gözlem, Doğru Karar",
         quote: "Yolu bulan, sadece hızlı olan değil; çevreyi doğru okuyandır.",
-        suggestion: "Fablında çevresini dikkatle gözleyen bir hayvan ile aceleci davranan başka bir karakteri karşılaştırabilirsin. Böylece gözlem yapmanın ve ipuçlarını fark etmenin önemi öne çıkar.",
+        suggestion: "Fablında çevresini dikkatle gözleyen bir hayvan ile aceleci davranan başka bir karakteri karşılaştırabilirsin. Böylece gözlem yapmanın ve ipuçlarını fark etmenin önemi öne çıkar."
       },
       "topluluk ve iş birliği": {
         title: "Topluluk ve İş Birliği",
@@ -314,7 +226,7 @@
         characters: "Kutup Kurdu, Misk Öküzü, Pufla veya Ren Geyiği",
         concepts: "Dayanışma, Birlik, Koruma, Ortak Sorumluluk",
         quote: "Buz kadar sert dünyalarda, birlikte duranlar daha uzun yaşar.",
-        suggestion: "Birlikte hareket edenlerin güçlü, yalnız hareket edenlerin ise daha kırılgan kaldığı bir fabl kurabilirsin. Yardımlaşma ve ortak hareket fikri ana ders olabilir.",
+        suggestion: "Birlikte hareket edenlerin güçlü, yalnız hareket edenlerin ise daha kırılgan kaldığı bir fabl kurabilirsin. Yardımlaşma ve ortak hareket fikri ana ders olabilir."
       },
       "besin yönetimi ve sabır": {
         title: "Besin Yönetimi ve Sabır",
@@ -322,7 +234,7 @@
         characters: "Beyaz Tilki, Kutup Ayısı veya Kar Baykuşu",
         concepts: "Sabır, Ölçülülük, Bekleme, Kaynağı Verimli Kullanma",
         quote: "Gereksiz acele, kıştan önce tükenen yiyecek gibidir.",
-        suggestion: "Elindekini hemen tüketen bir karakter ile sabredip doğru zamanı bekleyen bir karakteri karşılaştırabilirsin. Böylece ölçülülük ve planlı davranma vurgulanır.",
+        suggestion: "Elindekini hemen tüketen bir karakter ile sabredip doğru zamanı bekleyen bir karakteri karşılaştırabilirsin. Böylece ölçülülük ve planlı davranma vurgulanır."
       },
       "göç ve hareket": {
         title: "Göç ve Hareket",
@@ -330,15 +242,7 @@
         characters: "Kutup Sumrusu, Ren Geyiği, Narval veya Pufla",
         concepts: "Uyum, Yolculuk, Zamanlama, Dayanıklılık",
         quote: "Bazen ayakta kalmak, yerinde kalmak değil; doğru zamanda yola çıkmaktır.",
-        suggestion: "Bu temada değişen koşullara göre hareket eden bir karakter ile değişime direnip zorlanan başka bir karakteri karşılaştırabilirsin.",
-      },
-      "kamuflaj ve uyum": {
-        title: "Kamuflaj ve Uyum",
-        icon: "🎭",
-        characters: "Kutup Tavşanı, Kar Baykuşu, Beyaz Tilki veya Kutup Ayısı",
-        concepts: "Uyum Sağlama, Değişime Açıklık, Sessiz Güç, Çevreyi Anlama",
-        quote: "Hayatta kalan, en güçlü olan değil; değişene uyum sağlayandır.",
-        suggestion: "Çevresine uyum sağlayan bir hayvanı, bulunduğu koşulları anlamayan bir karakterle karşılaştırarak güçlü bir fabl çatısı kurabilirsin.",
+        suggestion: "Bu temada değişen koşullara göre hareket eden bir karakter ile değişime direnip zorlanan başka bir karakteri karşılaştırabilirsin."
       },
       "sessizlik ve enerji yönetimi": {
         title: "Sessizlik ve Enerji Yönetimi",
@@ -346,7 +250,7 @@
         characters: "Kutup Ayısı, Beyaz Tilki, Kar Baykuşu veya Fok",
         concepts: "Sabır, Ölçülülük, Gereksiz Risk Almama, Sakinlik",
         quote: "Gereksiz hareket, kutbun en büyük düşmanıdır.",
-        suggestion: "Acele edip gücünü tüketen bir hayvan ile sakin davranıp doğru anı bekleyen bir hayvanı karşılaştırabilirsin.",
+        suggestion: "Acele edip gücünü tüketen bir hayvan ile sakin davranıp doğru anı bekleyen bir hayvanı karşılaştırabilirsin."
       },
       "riskten kaçınma ve çekilme": {
         title: "Riskten Kaçınma ve Çekilme",
@@ -354,15 +258,7 @@
         characters: "Fok, Kutup Ayısı, Kutup Tavşanı veya Misk Öküzü",
         concepts: "Temkin, Korunma, Savunma, Geri Çekilme Bilgeliği",
         quote: "Her cesaret ileri atılmak değildir; bazen geri çekilmek akıldır.",
-        suggestion: "Tehlikeyi görmezden gelen bir karakter ile kendini korumayı bilen bir hayvanı karşılaştırarak temkinli davranmanın önemini vurgulayabilirsin.",
-      },
-      "karakter öner": {
-        title: "Karakter Önerileri",
-        icon: "🧩",
-        characters: "Beyaz Tilki, Kar Baykuşu, Kutup Ayısı, Kutup Kurdu, Kutup Tavşanı, Kutup Sumrusu, Fok, Misk Öküzü, Mors, Narval, Pufla, Ren Geyiği",
-        concepts: "Karakter Kurma, Çatışma, Ders, Değer",
-        quote: "İyi bir fablda hayvan sadece konuşmaz; bir düşünceyi temsil eder.",
-        suggestion: "Önce bir tema, sonra iki zıt karakter seçebilirsin. Örneğin sabırlı bir karakter ile aceleci bir karakteri karşı karşıya getirmek fablı güçlendirir.",
+        suggestion: "Tehlikeyi görmezden gelen bir karakter ile kendini korumayı bilen bir hayvanı karşılaştırarak temkinli davranmanın önemini vurgulayabilirsin."
       }
     };
 
@@ -372,8 +268,8 @@
       "kar baykuşu": "yön bulma ve alan okuma",
       "kutup ayısı": "sessizlik ve enerji yönetimi",
       "kutup kurdu": "topluluk ve iş birliği",
-      "kutup tavşanı": "kamuflaj ve uyum",
-      "arktik tavşanı": "kamuflaj ve uyum",
+      "kutup tavşanı": "riskten kaçınma ve çekilme",
+      "arktik tavşanı": "riskten kaçınma ve çekilme",
       "kutup sumrusu": "göç ve hareket",
       "fok": "riskten kaçınma ve çekilme",
       "misk öküzü": "topluluk ve iş birliği",
@@ -391,8 +287,6 @@
       "topluluk": "topluluk ve iş birliği",
       "göç": "göç ve hareket",
       "hareket": "göç ve hareket",
-      "kamuflaj": "kamuflaj ve uyum",
-      "uyum": "kamuflaj ve uyum",
       "risk": "riskten kaçınma ve çekilme",
       "çekilme": "riskten kaçınma ve çekilme",
       "yön bulma": "yön bulma ve alan okuma",
@@ -417,15 +311,12 @@
     }
 
     function setActive(topic){
-      buttons.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.topic === topic);
-      });
+      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.topic === topic));
     }
 
     function renderTopic(topic){
       const item = guideData[topic];
       if(!item) return;
-
       resultBox.innerHTML = `
         <h3>${item.icon} ${item.title}</h3>
         <div><strong>Önerilen Karakterler:</strong> ${item.characters}</div>
@@ -433,61 +324,45 @@
         <div class="quote">"${item.quote}"</div>
         <div><strong>Yazım Önerisi:</strong> ${item.suggestion}</div>
       `;
-
+      resultBox.classList.add('show');
       setActive(topic);
     }
 
     function findTopicFromText(text){
       const n = normalize(text);
-
       for(const key in guideData){
         if(n.includes(normalize(key))) return key;
       }
-
       for(const key in aliases){
         if(n.includes(normalize(key))) return aliases[key];
       }
-
       for(const animal in animalHints){
         if(n.includes(normalize(animal))) return animalHints[animal];
       }
-
       return null;
     }
 
     function handleInput(){
       const text = userInput.value.trim();
-
       if(!text){
-        extraNote.textContent = "Bir tema ya da hayvan adı yazabilirsin: kamuflaj, göç, iş birliği, kutup ayısı, beyaz tilki...";
+        extraNote.textContent = 'Bir tema ya da hayvan adı yazabilirsin: göç, iş birliği, kutup ayısı, beyaz tilki...';
         return;
       }
-
       const matched = findTopicFromText(text);
-
       if(matched){
         renderTopic(matched);
-        extraNote.textContent = "Tema güncellendi.";
-        userInput.value = "";
+        extraNote.textContent = 'Tema güncellendi.';
+        userInput.value = '';
         return;
       }
-
-      const n = normalize(text);
-      if(n.includes('liste') || n.includes('tema')){
-        renderTopic('karakter öner');
-        extraNote.textContent = "Karakter önerileri gösterildi.";
-        userInput.value = "";
-        return;
-      }
-
-      extraNote.textContent = "Tanınan bir tema bulunamadı. Örnek: kamuflaj, göç, iş birliği, kutup ayısı.";
-      userInput.value = "";
+      extraNote.textContent = 'Tanınan bir tema bulunamadı. Örnek: göç, iş birliği, kutup ayısı, narval.';
+      userInput.value = '';
     }
 
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         renderTopic(btn.dataset.topic);
-        extraNote.textContent = "Tema güncellendi.";
+        extraNote.textContent = 'Tema güncellendi.';
       });
     });
 
@@ -498,8 +373,6 @@
         handleInput();
       }
     });
-
-    renderTopic('sessizlik ve enerji yönetimi');
   </script>
 </body>
 </html>
