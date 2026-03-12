@@ -6,23 +6,18 @@
   <title>Kutup Temalı Fabl Yazma Kılavuzu</title>
   <style>
     :root{
-      --bg:#edf2f7;
-      --bg-2:#f7fafc;
       --glass:rgba(255,255,255,.72);
       --glass-strong:rgba(255,255,255,.86);
       --text:#16202a;
       --muted:#5e6b78;
       --accent:#ff7a18;
-      --accent-2:#ff9b52;
       --blue:#4c7dff;
-      --blue-2:#7fa7ff;
       --line:rgba(54,78,110,.18);
       --shadow:0 10px 30px rgba(40,56,85,.10);
       --shadow-soft:0 6px 18px rgba(40,56,85,.08);
     }
 
     *{box-sizing:border-box}
-
     body{
       margin:0;
       font-family: Inter, Arial, Helvetica, sans-serif;
@@ -33,11 +28,7 @@
         linear-gradient(180deg, #f8fbff 0%, #eef3f8 100%);
     }
 
-    .app{
-      max-width:980px;
-      margin:0 auto;
-      padding:12px;
-    }
+    .app{ max-width:980px; margin:0 auto; padding:12px; }
 
     .shell{
       position:relative;
@@ -58,7 +49,6 @@
       overflow:hidden;
       z-index:0;
     }
-
     .snowflake{
       position:absolute;
       top:-20px;
@@ -68,7 +58,6 @@
       text-shadow:0 0 8px rgba(255,255,255,.35);
       opacity:.8;
     }
-
     @keyframes fall{
       0%{ transform:translateY(-10px) translateX(0); opacity:0; }
       10%{ opacity:.8; }
@@ -90,24 +79,14 @@
       box-shadow:0 12px 28px rgba(255,122,24,.22);
     }
 
-    .title::after{
-      content:"";
-      position:absolute;
-      inset:auto -20% -55% auto;
-      width:180px;
-      height:180px;
-      background:rgba(255,255,255,.16);
-      border-radius:50%;
-      filter:blur(1px);
-    }
-
     .hero{
       position:relative;
       z-index:1;
       margin-top:10px;
       display:grid;
-      grid-template-columns:1fr;
+      grid-template-columns:110px 1fr;
       gap:10px;
+      align-items:center;
     }
 
     .speech{
@@ -123,13 +102,7 @@
       line-height:1.45;
       box-shadow:var(--shadow-soft);
     }
-
-    .speech strong{
-      display:inline-block;
-      font-size:.92rem;
-      margin-bottom:2px;
-    }
-
+    .speech strong{ display:inline-block; font-size:.92rem; margin-bottom:2px; }
     .speech::before{
       content:"";
       position:absolute;
@@ -143,6 +116,19 @@
       transform:rotate(45deg);
       border-bottom-left-radius:6px;
     }
+
+    .mascot-card{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:86px;
+      border-radius:20px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(54,78,110,.12);
+      box-shadow:var(--shadow-soft);
+      padding:8px;
+    }
+    .mascot-card svg{ width:64px; height:64px; display:block; }
 
     .grid{
       position:relative;
@@ -174,7 +160,6 @@
       justify-content:center;
       gap:8px;
     }
-
     .topic-btn::after{
       content:"";
       position:absolute;
@@ -185,22 +170,30 @@
       transition:left .55s ease;
       pointer-events:none;
     }
-
     .topic-btn:hover{
       transform:translateY(-1px);
       box-shadow:0 10px 20px rgba(76,125,255,.12), 0 0 0 1px rgba(127,167,255,.18), 0 0 18px rgba(127,167,255,.18);
     }
-
-    .topic-btn:hover::after{
-      left:140%;
-    }
-
+    .topic-btn:hover::after{ left:140%; }
     .topic-btn.active{
       background:linear-gradient(135deg, #4c7dff 0%, #6c94ff 100%);
       color:#fff;
       box-shadow:0 12px 26px rgba(76,125,255,.24);
       border-color:transparent;
     }
+
+    .btn-icon{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:28px;
+      height:28px;
+      flex:0 0 28px;
+      border-radius:10px;
+      background:rgba(255,255,255,.78);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.85), 0 2px 6px rgba(76,125,255,.10);
+    }
+    .btn-icon svg{ width:22px; height:22px; display:block; }
 
     .result-box{
       position:relative;
@@ -215,7 +208,6 @@
       font-size:.79rem;
       line-height:1.45;
     }
-
     .result-head{
       display:flex;
       align-items:center;
@@ -223,7 +215,6 @@
       gap:10px;
       margin-bottom:8px;
     }
-
     .result-box h3{
       margin:0;
       font-size:.94rem;
@@ -232,7 +223,6 @@
       align-items:center;
       gap:8px;
     }
-
     .badge{
       background:rgba(76,125,255,.10);
       color:#2f63d6;
@@ -243,21 +233,18 @@
       font-weight:700;
       white-space:nowrap;
     }
-
     .mini-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:8px;
       margin:8px 0;
     }
-
     .mini-card{
       background:rgba(255,255,255,.78);
       border:1px solid rgba(54,78,110,.10);
       border-radius:14px;
       padding:8px 10px;
     }
-
     .mini-card .label{
       display:block;
       font-size:.64rem;
@@ -267,7 +254,6 @@
       text-transform:uppercase;
       letter-spacing:.4px;
     }
-
     .quote{
       margin:8px 0;
       padding:8px 10px;
@@ -277,76 +263,23 @@
       color:#4a5562;
       font-style:italic;
     }
-
-    .suggestion{
-      color:#25323f;
-    }
-
-    .bottom{
-      position:relative;
-      z-index:1;
-      display:block;
-      margin-top:10px;
-    }
-
-    .input-box{
-      background:rgba(255,255,255,.82);
-      border:1px solid var(--line);
-      border-radius:16px;
-      min-height:48px;
-      box-shadow:var(--shadow-soft);
-      display:flex;
-      align-items:center;
-      padding:8px 10px;
-    }
-
-    textarea{
-      width:100%;
-      min-height:26px;
-      resize:none;
-      border:none;
-      outline:none;
-      background:transparent;
-      font-size:.78rem;
-      font-family:inherit;
-      color:var(--text);
-    }
-
-    textarea::placeholder{ color:#7c8792; }
-
-    
+    .suggestion{ color:#25323f; }
 
     .note{
       position:relative;
       z-index:1;
-      padding:6px 4px 0;
+      padding:8px 4px 0;
       font-size:.67rem;
       color:#5f6b77;
       text-align:center;
-    }
-
-    .btn-icon{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:28px;
-      height:28px;
-      flex:0 0 28px;
-      border-radius:10px;
-      background:rgba(255,255,255,.78);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.85), 0 2px 6px rgba(76,125,255,.10);
-    }
-
-    .btn-icon svg{
-      width:22px;
-      height:22px;
-      display:block;
     }
 
     @media (max-width:700px){
       .app{ padding:8px; }
       .shell{ padding:10px; border-radius:24px; }
       .title{ font-size:1.1rem; padding:12px 10px; }
+      .hero{ grid-template-columns:1fr 1fr; }
+      .hero .speech{ grid-column:1 / -1; }
       .grid{ grid-template-columns:1fr; }
       .speech{ font-size:.74rem; }
       .speech::before{ display:none; }
@@ -354,6 +287,8 @@
       .topic-btn{ min-height:40px; }
       .btn-icon{ width:26px; height:26px; flex-basis:26px; }
       .btn-icon svg{ width:20px; height:20px; }
+      .mascot-card{ height:72px; }
+      .mascot-card svg{ width:54px; height:54px; }
     }
 
     @media (max-width:520px){
@@ -368,11 +303,25 @@
       <div class="title">Kutup Temalı Fabl Yazma Kılavuzu</div>
 
       <section class="hero">
+        <div class="mascot-card" title="Kutup Ayısı">
+          <svg viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="27" cy="22" r="9" fill="#e8eef7"/>
+            <circle cx="53" cy="22" r="9" fill="#e8eef7"/>
+            <circle cx="40" cy="38" r="24" fill="#f8fbff" stroke="#5c708a" stroke-width="2"/>
+            <circle cx="31" cy="36" r="3.5" fill="#314255"/>
+            <circle cx="49" cy="36" r="3.5" fill="#314255"/>
+            <ellipse cx="40" cy="46" rx="10" ry="7" fill="#dfe9f5"/>
+            <circle cx="40" cy="43" r="3.5" fill="#314255"/>
+            <path d="M34 49 Q40 54 46 49" fill="none" stroke="#314255" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="24" cy="19" r="3" fill="#c8d5e8"/>
+            <circle cx="56" cy="19" r="3" fill="#c8d5e8"/>
+          </svg>
+        </div>
         <div class="speech">
           <div>
             <strong>Merhaba!</strong><br>
             Kutup hayvanlarının hayatta kalma stratejilerini güçlü bir fabl temasına dönüştürmene yardımcı olabilirim.
-            Aşağıdan bir strateji seç ya da bir hayvan / tema yaz.
+            Aşağıdan bir strateji seç.
           </div>
         </div>
       </section>
@@ -444,14 +393,7 @@
       </section>
 
       <section class="result-box" id="resultBox"></section>
-
-      <section class="bottom">
-        <div class="input-box">
-          <textarea id="userInput" placeholder="Örn: kutup ayısı, göç, iş birliği, risk..."></textarea>
-        </div>
-      </section>
-
-      <div class="note" id="extraNote">Tema ya da hayvan adı yazabilirsin: kutup ayısı, beyaz tilki, göç, iş birliği, risk...</div>
+      <div class="note" id="extraNote">Temalar butonlarla seçilir.</div>
     </div>
   </div>
 
@@ -507,53 +449,10 @@
       }
     };
 
-    const animalHints = {
-      "beyaz tilki": "besin yönetimi ve sabır",
-      "arktik tilkisi": "besin yönetimi ve sabır",
-      "kar baykuşu": "yön bulma ve alan okuma",
-      "kutup ayısı": "sessizlik ve enerji yönetimi",
-      "kutup kurdu": "topluluk ve iş birliği",
-      "kutup tavşanı": "riskten kaçınma ve çekilme",
-      "arktik tavşanı": "riskten kaçınma ve çekilme",
-      "kutup sumrusu": "göç ve hareket",
-      "fok": "riskten kaçınma ve çekilme",
-      "misk öküzü": "topluluk ve iş birliği",
-      "mors": "yön bulma ve alan okuma",
-      "narval": "göç ve hareket",
-      "pufla": "topluluk ve iş birliği",
-      "ren geyiği": "göç ve hareket"
-    };
-
-    const aliases = {
-      "sabır ve enerji yönetimi": "sessizlik ve enerji yönetimi",
-      "enerji yönetimi": "sessizlik ve enerji yönetimi",
-      "sabır": "besin yönetimi ve sabır",
-      "iş birliği": "topluluk ve iş birliği",
-      "topluluk": "topluluk ve iş birliği",
-      "göç": "göç ve hareket",
-      "hareket": "göç ve hareket",
-      "risk": "riskten kaçınma ve çekilme",
-      "çekilme": "riskten kaçınma ve çekilme",
-      "yön bulma": "yön bulma ve alan okuma",
-      "alan okuma": "yön bulma ve alan okuma"
-    };
-
     const buttons = [...document.querySelectorAll('.topic-btn')];
     const resultBox = document.getElementById('resultBox');
     const extraNote = document.getElementById('extraNote');
-    const userInput = document.getElementById('userInput');
-        const snowLayer = document.getElementById('snowLayer');
-
-    function normalize(text){
-      return text.toLowerCase()
-        .replace(/ı/g,'i')
-        .replace(/ğ/g,'g')
-        .replace(/ü/g,'u')
-        .replace(/ş/g,'s')
-        .replace(/ö/g,'o')
-        .replace(/ç/g,'c')
-        .trim();
-    }
+    const snowLayer = document.getElementById('snowLayer');
 
     function setActive(topic){
       buttons.forEach(btn => {
@@ -564,7 +463,6 @@
     function renderTopic(topic){
       const item = guideData[topic];
       if(!item) return;
-
       resultBox.innerHTML = `
         <div class="result-head">
           <h3>${item.icon} ${item.title}</h3>
@@ -583,81 +481,12 @@
         <div class="quote">"${item.quote}"</div>
         <div class="suggestion"><strong>Yazım Önerisi:</strong> ${item.suggestion}</div>
       `;
-
+      extraNote.textContent = 'Tema güncellendi.';
       setActive(topic);
     }
 
-    function findTopicFromText(text){
-      const n = normalize(text);
-
-      for(const key in guideData){
-        if(n.includes(normalize(key))) return key;
-      }
-
-      for(const key in aliases){
-        if(n.includes(normalize(key))) return aliases[key];
-      }
-
-      for(const animal in animalHints){
-        if(n.includes(normalize(animal))) return animalHints[animal];
-      }
-
-      return null;
-    }
-
-    function handleInput(){
-      const text = userInput.value.trim();
-
-      if(!text){
-        extraNote.textContent = "Bir tema ya da hayvan adı yazabilirsin: kutup ayısı, beyaz tilki, göç, iş birliği, risk...";
-        return;
-      }
-
-      const matched = findTopicFromText(text);
-
-      if(matched){
-        renderTopic(matched);
-        extraNote.textContent = "Tema güncellendi.";
-        userInput.value = "";
-        return;
-      }
-
-      const n = normalize(text);
-      if(n.includes('liste') || n.includes('tema')){
-        extraNote.textContent = "Kullanılabilir temalar: yön bulma, iş birliği, besin yönetimi, göç, sessizlik, riskten kaçınma.";
-        userInput.value = "";
-        return;
-      }
-
-      extraNote.textContent = "Tanınan bir tema bulunamadı. Örnek: göç, iş birliği, kutup ayısı, risk.";
-      userInput.value = "";
-    }
-
     buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        renderTopic(btn.dataset.topic);
-        extraNote.textContent = "Tema güncellendi.";
-      });
-    });
-
-        userInput.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter' && !e.shiftKey){
-        e.preventDefault();
-        handleInput();
-      }
-    });
-
-    userInput.addEventListener('input', () => {
-      const value = userInput.value.trim();
-      if(!value){
-        extraNote.textContent = "Tema ya da hayvan adı yazabilirsin: kutup ayısı, beyaz tilki, göç, iş birliği, risk...";
-        return;
-      }
-      const matched = findTopicFromText(value);
-      if(matched){
-        renderTopic(matched);
-        extraNote.textContent = "Tema otomatik güncellendi.";
-      }
+      btn.addEventListener('click', () => renderTopic(btn.dataset.topic));
     });
 
     const snowSymbols = ['❄','✦','•'];
