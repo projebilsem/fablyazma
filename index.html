@@ -6,208 +6,453 @@
   <title>Kutup Temalı Fabl Yazma Kılavuzu</title>
   <style>
     :root{
-      --bg:#efefef;
-      --orange:#c85d0f;
-      --cream:#edd9cc;
-      --line:#2d3f5f;
-      --blue:#2f6edc;
-      --blue-dark:#1f4fa6;
-      --text:#111;
-      --shadow:0 3px 10px rgba(0,0,0,.08);
+      --bg:#edf2f7;
+      --bg-2:#f7fafc;
+      --glass:rgba(255,255,255,.72);
+      --glass-strong:rgba(255,255,255,.86);
+      --text:#16202a;
+      --muted:#5e6b78;
+      --accent:#ff7a18;
+      --accent-2:#ff9b52;
+      --blue:#4c7dff;
+      --blue-2:#7fa7ff;
+      --line:rgba(54,78,110,.18);
+      --shadow:0 10px 30px rgba(40,56,85,.10);
+      --shadow-soft:0 6px 18px rgba(40,56,85,.08);
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:var(--bg);
+      font-family: Inter, Arial, Helvetica, sans-serif;
       color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(76,125,255,.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(255,122,24,.12), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #eef3f8 100%);
     }
+
     .app{
-      max-width:1180px;
+      max-width:980px;
       margin:0 auto;
-      padding:10px 12px 14px;
+      padding:12px;
     }
+
+    .shell{
+      position:relative;
+      overflow:hidden;
+      background:var(--glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border:1px solid rgba(255,255,255,.55);
+      border-radius:32px;
+      box-shadow:var(--shadow);
+      padding:12px;
+    }
+
+    .snow-layer{
+      pointer-events:none;
+      position:absolute;
+      inset:0;
+      overflow:hidden;
+      z-index:0;
+    }
+
+    .snowflake{
+      position:absolute;
+      top:-20px;
+      color:rgba(255,255,255,.75);
+      font-size:10px;
+      animation:fall linear infinite;
+      text-shadow:0 0 8px rgba(255,255,255,.35);
+      opacity:.8;
+    }
+
+    @keyframes fall{
+      0%{ transform:translateY(-10px) translateX(0); opacity:0; }
+      10%{ opacity:.8; }
+      100%{ transform:translateY(560px) translateX(16px); opacity:.15; }
+    }
+
     .title{
-      width:100%;
-      background:var(--orange);
+      position:relative;
+      z-index:1;
+      overflow:hidden;
+      background:linear-gradient(135deg, #ff7a18 0%, #ff8d35 55%, #ffb067 100%);
       color:#fff;
-      border:2px solid var(--line);
       border-radius:24px;
       text-align:center;
-      font-size:1.9rem;
+      font-size:1.38rem;
       font-weight:800;
-      padding:18px 10px;
-      box-shadow:var(--shadow);
-      margin-bottom:12px;
-      line-height:1.1;
+      letter-spacing:.2px;
+      padding:14px 12px;
+      box-shadow:0 12px 28px rgba(255,122,24,.22);
     }
-    .hero{ margin:0 0 14px; }
+
+    .title::after{
+      content:"";
+      position:absolute;
+      inset:auto -20% -55% auto;
+      width:180px;
+      height:180px;
+      background:rgba(255,255,255,.16);
+      border-radius:50%;
+      filter:blur(1px);
+    }
+
+    .hero{
+      position:relative;
+      z-index:1;
+      margin-top:10px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+
     .speech{
       position:relative;
-      background:var(--cream);
-      border:2px solid #252525;
-      border-radius:24px;
-      min-height:110px;
+      background:var(--glass-strong);
+      border:1px solid var(--line);
+      border-radius:22px;
+      min-height:72px;
       display:flex;
       align-items:center;
-      padding:14px 18px;
-      font-size:.95rem;
+      padding:12px 14px;
+      font-size:.8rem;
       line-height:1.45;
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow-soft);
     }
+
+    .speech strong{
+      display:inline-block;
+      font-size:.92rem;
+      margin-bottom:2px;
+    }
+
     .speech::before{
       content:"";
       position:absolute;
-      left:-54px;
-      bottom:22px;
-      width:0;
-      height:0;
-      border-top:16px solid transparent;
-      border-bottom:16px solid transparent;
-      border-right:54px solid var(--cream);
-      filter:drop-shadow(-2px 0 0 #252525);
+      left:-18px;
+      bottom:18px;
+      width:28px;
+      height:28px;
+      background:var(--glass-strong);
+      border-left:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      transform:rotate(45deg);
+      border-bottom-left-radius:6px;
     }
+
     .grid{
+      position:relative;
+      z-index:1;
       display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:22px 46px;
-      padding:6px 54px 10px;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      padding:10px 6px 6px;
     }
+
     .topic-btn{
+      position:relative;
       width:100%;
-      min-height:52px;
-      border:1.8px solid var(--line);
-      border-radius:14px;
-      background:#dddddf;
-      font-size:.88rem;
-      font-weight:800;
+      min-height:44px;
+      border:none;
+      border-radius:15px;
+      background:linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(241,245,251,.95) 100%);
+      color:var(--text);
+      font-size:.76rem;
+      font-weight:700;
       cursor:pointer;
-      box-shadow:var(--shadow);
-      padding:8px 10px;
-      transition:transform .12s ease, background .18s ease;
-    }
-    .topic-btn:hover{ transform:translateY(-1px); background:#e8e8eb; }
-    .topic-btn.active{ background:var(--blue); color:#fff; border-color:var(--blue-dark); }
-    .result-box{
-      margin-top:10px;
-      background:#f7f8fb;
-      border:1.5px solid #d6dbe3;
-      border-radius:16px;
-      padding:12px 14px;
-      min-height:110px;
-      box-shadow:var(--shadow);
-      font-size:.86rem;
-      line-height:1.38;
-      display:none;
-    }
-    .result-box.show{ display:block; }
-    .result-box h3{
-      margin:0 0 6px;
-      font-size:.95rem;
-      color:#204b8d;
-    }
-    .quote{
-      border-left:3px solid #58a7b9;
-      padding:6px 8px;
-      margin:6px 0 8px;
-      background:#fff;
-      font-style:italic;
-      color:#444;
-    }
-    .bottom{
-      display:grid;
-      grid-template-columns:1fr 172px;
-      gap:14px;
-      margin-top:18px;
-      align-items:stretch;
-    }
-    .input-box{
-      background:var(--cream);
-      border:2px solid var(--line);
-      border-radius:20px;
-      min-height:70px;
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow-soft);
+      padding:8px 12px;
+      transition:transform .14s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+      border:1px solid rgba(76,125,255,.10);
+      overflow:hidden;
       display:flex;
       align-items:center;
-      padding:10px 14px;
+      justify-content:center;
+      gap:8px;
     }
+
+    .topic-btn::after{
+      content:"";
+      position:absolute;
+      inset:-30% auto -30% -120%;
+      width:58%;
+      transform:skewX(-22deg);
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.78), transparent);
+      transition:left .55s ease;
+      pointer-events:none;
+    }
+
+    .topic-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 20px rgba(76,125,255,.12), 0 0 0 1px rgba(127,167,255,.18), 0 0 18px rgba(127,167,255,.18);
+    }
+
+    .topic-btn:hover::after{
+      left:140%;
+    }
+
+    .topic-btn.active{
+      background:linear-gradient(135deg, #4c7dff 0%, #6c94ff 100%);
+      color:#fff;
+      box-shadow:0 12px 26px rgba(76,125,255,.24);
+      border-color:transparent;
+    }
+
+    .result-box{
+      position:relative;
+      z-index:1;
+      margin-top:8px;
+      background:linear-gradient(180deg, rgba(255,255,255,.9) 0%, rgba(245,248,252,.94) 100%);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:12px 14px;
+      min-height:120px;
+      box-shadow:var(--shadow-soft);
+      font-size:.79rem;
+      line-height:1.45;
+    }
+
+    .result-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:8px;
+    }
+
+    .result-box h3{
+      margin:0;
+      font-size:.94rem;
+      color:#214d9a;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .badge{
+      background:rgba(76,125,255,.10);
+      color:#2f63d6;
+      border:1px solid rgba(76,125,255,.14);
+      border-radius:999px;
+      padding:5px 10px;
+      font-size:.67rem;
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      margin:8px 0;
+    }
+
+    .mini-card{
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(54,78,110,.10);
+      border-radius:14px;
+      padding:8px 10px;
+    }
+
+    .mini-card .label{
+      display:block;
+      font-size:.64rem;
+      font-weight:800;
+      color:var(--muted);
+      margin-bottom:4px;
+      text-transform:uppercase;
+      letter-spacing:.4px;
+    }
+
+    .quote{
+      margin:8px 0;
+      padding:8px 10px;
+      border-radius:14px;
+      background:linear-gradient(90deg, rgba(255,122,24,.08), rgba(255,255,255,.7));
+      border-left:3px solid var(--accent);
+      color:#4a5562;
+      font-style:italic;
+    }
+
+    .suggestion{
+      color:#25323f;
+    }
+
+    .bottom{
+      position:relative;
+      z-index:1;
+      display:block;
+      margin-top:10px;
+    }
+
+    .input-box{
+      background:rgba(255,255,255,.82);
+      border:1px solid var(--line);
+      border-radius:16px;
+      min-height:48px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      align-items:center;
+      padding:8px 10px;
+    }
+
     textarea{
       width:100%;
-      min-height:42px;
+      min-height:26px;
       resize:none;
       border:none;
       outline:none;
       background:transparent;
-      font-size:.92rem;
+      font-size:.78rem;
       font-family:inherit;
       color:var(--text);
     }
-    .send-btn{
-      background:var(--orange);
-      color:#fff;
-      border:2px solid var(--line);
-      border-radius:18px;
-      min-height:70px;
-      font-size:.96rem;
-      font-weight:800;
-      cursor:pointer;
-      box-shadow:var(--shadow);
-      letter-spacing:.4px;
-    }
-    .send-btn:hover{ filter:brightness(1.03); }
+
+    textarea::placeholder{ color:#7c8792; }
+
+    
+
     .note{
-      padding:6px 2px 0;
-      font-size:.72rem;
-      color:#333;
+      position:relative;
+      z-index:1;
+      padding:6px 4px 0;
+      font-size:.67rem;
+      color:#5f6b77;
       text-align:center;
     }
-    @media (max-width:900px){
-      .title{ font-size:1.45rem; padding:14px 8px; }
-      .grid{ grid-template-columns:1fr 1fr; padding:6px 12px 8px; gap:12px; }
-      .speech{ font-size:.84rem; }
-      .bottom{ grid-template-columns:1fr 132px; gap:10px; }
+
+    .btn-icon{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:28px;
+      height:28px;
+      flex:0 0 28px;
+      border-radius:10px;
+      background:rgba(255,255,255,.78);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.85), 0 2px 6px rgba(76,125,255,.10);
     }
-    @media (max-width:620px){
+
+    .btn-icon svg{
+      width:22px;
+      height:22px;
+      display:block;
+    }
+
+    @media (max-width:700px){
+      .app{ padding:8px; }
+      .shell{ padding:10px; border-radius:24px; }
+      .title{ font-size:1.1rem; padding:12px 10px; }
       .grid{ grid-template-columns:1fr; }
-      .bottom{ grid-template-columns:1fr; }
+      .speech{ font-size:.74rem; }
       .speech::before{ display:none; }
-      .title{ font-size:1.15rem; }
+      .mini-grid{ grid-template-columns:1fr; }
+      .topic-btn{ min-height:40px; }
+      .btn-icon{ width:26px; height:26px; flex-basis:26px; }
+      .btn-icon svg{ width:20px; height:20px; }
+    }
+
+    @media (max-width:520px){
+      .title{ font-size:1rem; }
     }
   </style>
 </head>
 <body>
   <div class="app">
-    <div class="title">Kutup Temalı Fabl Yazma Kılavuzu</div>
+    <div class="shell">
+      <div class="snow-layer" id="snowLayer"></div>
+      <div class="title">Kutup Temalı Fabl Yazma Kılavuzu</div>
 
-    <section class="hero">
-      <div class="speech">
-        <div>
-          <strong>Merhaba!</strong><br>
-          Kutup hayvanlarının hayatta kalma stratejilerini fabl temasına dönüştürmene yardımcı olabilirim.<br>
-          Aşağıdaki stratejilerden birini seçebilirsin.
+      <section class="hero">
+        <div class="speech">
+          <div>
+            <strong>Merhaba!</strong><br>
+            Kutup hayvanlarının hayatta kalma stratejilerini güçlü bir fabl temasına dönüştürmene yardımcı olabilirim.
+            Aşağıdan bir strateji seç ya da bir hayvan / tema yaz.
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="grid">
-      <button class="topic-btn" data-topic="yön bulma ve alan okuma">Yön Bulma ve Alan Okuma</button>
-      <button class="topic-btn" data-topic="topluluk ve iş birliği">Topluluk ve İş Birliği</button>
-      <button class="topic-btn" data-topic="göç ve hareket">Göç ve Hareket</button>
-      <button class="topic-btn" data-topic="besin yönetimi ve sabır">Besin Yönetimi ve Sabır</button>
-      <button class="topic-btn" data-topic="sessizlik ve enerji yönetimi">Sessizlik ve Enerji Yönetimi</button>
-      <button class="topic-btn" data-topic="riskten kaçınma ve çekilme">Riskten Kaçınma ve Çekilme</button>
-    </section>
+      <section class="grid">
+        <button class="topic-btn" data-topic="yön bulma ve alan okuma">
+          <span class="btn-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="16" fill="#fff4d6"/>
+              <circle cx="24" cy="24" r="11" fill="#d9ecff" stroke="#4c7dff" stroke-width="2"/>
+              <path d="M24 14 L28 24 L24 34 L20 24 Z" fill="#ff7a18"/>
+              <circle cx="24" cy="24" r="2.5" fill="#4c7dff"/>
+            </svg>
+          </span>
+          <span>Yön Bulma ve Alan Okuma</span>
+        </button>
+        <button class="topic-btn" data-topic="topluluk ve iş birliği">
+          <span class="btn-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="17" cy="19" r="6" fill="#ffd9cc"/>
+              <circle cx="31" cy="19" r="6" fill="#ffe7bf"/>
+              <rect x="11" y="26" width="12" height="9" rx="4.5" fill="#7fa7ff"/>
+              <rect x="25" y="26" width="12" height="9" rx="4.5" fill="#ff9b52"/>
+              <path d="M19 28 L24 24 L29 28" fill="none" stroke="#4c7dff" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span>Topluluk ve İş Birliği</span>
+        </button>
+        <button class="topic-btn" data-topic="besin yönetimi ve sabır">
+          <span class="btn-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <ellipse cx="24" cy="28" rx="14" ry="8" fill="#d9ecff"/>
+              <path d="M15 25 C17 18, 31 18, 33 25" fill="#fff0c9"/>
+              <circle cx="19" cy="22" r="2" fill="#ff9b52"/>
+              <circle cx="25" cy="21" r="2" fill="#7fa7ff"/>
+              <circle cx="29" cy="24" r="2" fill="#78c98c"/>
+            </svg>
+          </span>
+          <span>Besin Yönetimi ve Sabır</span>
+        </button>
+        <button class="topic-btn" data-topic="göç ve hareket">
+          <span class="btn-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <path d="M10 28 C16 20, 22 18, 27 18 C34 18, 38 22, 40 28" fill="#d9ecff"/>
+              <path d="M16 26 L24 18 L31 26" fill="none" stroke="#4c7dff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 18 L24 32" stroke="#ff7a18" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span>Göç ve Hareket</span>
+        </button>
+        <button class="topic-btn" data-topic="sessizlik ve enerji yönetimi">
+          <span class="btn-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="13" fill="#d9ecff"/>
+              <path d="M24 12 L26 18 L32 16 L28 22 L34 24 L28 26 L31 32 L25 29 L24 35 L22 29 L16 32 L19 26 L13 24 L19 22 L16 16 L22 18 Z" fill="#ffffff" stroke="#4c7dff" stroke-width="1.3" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>Sessizlik ve Enerji Yönetimi</span>
+        </button>
+        <button class="topic-btn" data-topic="riskten kaçınma ve çekilme">
+          <span class="btn-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <path d="M24 10 L35 14 V23 C35 30 30 35 24 38 C18 35 13 30 13 23 V14 Z" fill="#d9ecff" stroke="#4c7dff" stroke-width="2"/>
+              <path d="M20 24 L23 27 L29 20" fill="none" stroke="#ff7a18" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>Riskten Kaçınma ve Çekilme</span>
+        </button>
+      </section>
 
-    <section class="result-box" id="resultBox"></section>
+      <section class="result-box" id="resultBox"></section>
 
-    <section class="bottom">
-      <div class="input-box">
-        <textarea id="userInput" placeholder="Bir tema ya da hayvan adı yaz..."></textarea>
-      </div>
-      <button class="send-btn" id="sendBtn">GÖNDER</button>
-    </section>
+      <section class="bottom">
+        <div class="input-box">
+          <textarea id="userInput" placeholder="Örn: kutup ayısı, göç, iş birliği, risk..."></textarea>
+        </div>
+      </section>
 
-    <div class="note" id="extraNote">Tema seçebilir ya da kutup ayısı, beyaz tilki, fok, narval gibi bir hayvan adı yazabilirsin.</div>
+      <div class="note" id="extraNote">Tema ya da hayvan adı yazabilirsin: kutup ayısı, beyaz tilki, göç, iş birliği, risk...</div>
+    </div>
   </div>
 
   <script>
@@ -215,50 +460,50 @@
       "yön bulma ve alan okuma": {
         title: "Yön Bulma ve Alan Okuma",
         icon: "🧭",
-        characters: "Beyaz Tilki, Kar Baykuşu, Ren Geyiği veya Narval",
+        characters: "🦊 Beyaz Tilki, 🦉 Kar Baykuşu, 🦌 Ren Geyiği veya 🐋 Narval",
         concepts: "Dikkat, Sezgi, Gözlem, Doğru Karar",
         quote: "Yolu bulan, sadece hızlı olan değil; çevreyi doğru okuyandır.",
-        suggestion: "Bu temada fablını, çevresini dikkatle inceleyen bir hayvan ile acele edip yanlış kararlar veren başka bir hayvan arasında kurabilirsin. Örneğin karla kaplı bir arazide yiyecek arayan iki karakter düşün: biri izleri dikkatle takip ederek doğru yolu bulur, diğeri ise sabırsız davranıp tehlikeli bir yere gider. Hikâyenin sonunda doğru yolu bulmanın sadece hızla değil, gözlem ve düşünmeyle mümkün olduğu mesajını verebilirsin. Böylece fablın ana fikri 'çevresini anlayan kazanır' düşüncesi üzerine kurulabilir."
+        suggestion: "Bu tema için fablında iki farklı yaklaşımı karşı karşıya getirebilirsin: Biri çevresini dikkatle inceleyen, kokuya, sese, izlere ve küçük ipuçlarına anlam veren bir karakter; diğeri ise yalnızca hızına güvenip düşünmeden hareket eden bir karakter olabilir. Hikâyede beyaz tilki kar altındaki yaşam izlerini fark ederek doğru yöne ulaşabilir, kar baykuşu sessizce gözlem yaparak tehlikeyi önceden sezebilir ya da ren geyiği sürüsü eski geçiş yollarını izleyerek güvenli bölgeye varabilir. Böyle bir kurgu, öğrencilere yalnızca güçlü olmanın yetmediğini; dikkatli bakmanın, çevreyi okumanın ve doğru zamanda karar vermenin de en az güç kadar önemli olduğunu gösterebilir. Fablın sonunda ana ders, düşünmeden koşanın kaybolabileceği; gözlem yapanın ise yolunu daha kolay bulacağı fikri üzerine kurulabilir."
       },
       "topluluk ve iş birliği": {
         title: "Topluluk ve İş Birliği",
         icon: "🤝",
-        characters: "Kutup Kurdu, Misk Öküzü, Pufla veya Ren Geyiği",
+        characters: "🐺 Kutup Kurdu, 🐂 Misk Öküzü, 🐦 Pufla veya 🦌 Ren Geyiği",
         concepts: "Dayanışma, Birlik, Koruma, Ortak Sorumluluk",
         quote: "Buz kadar sert dünyalarda, birlikte duranlar daha uzun yaşar.",
-        suggestion: "Bu fablda birlikte hareket eden hayvanların zorlukları nasıl daha kolay aştığını gösterebilirsin. Örneğin yalnız başına yiyecek arayan bir hayvanın zorlandığını, ancak bir grup halinde hareket eden diğer hayvanların hem kendilerini koruyup hem de yiyecek bulduğunu anlatabilirsin. Hikâyede karakterler arasında küçük bir çatışma da kurabilirsin: biri tek başına güçlü olduğunu düşünür, diğeri ise birlikte hareket etmeyi savunur. Sonunda iş birliğinin daha güvenli ve başarılı bir yol olduğu ortaya çıkar."
+        suggestion: "Bu temada tek başına hareket etmeyi üstünlük sanan bir karakter ile birlikte davranmanın gücünü bilen bir grup ya da hayvanı karşılaştırabilirsin. Örneğin kutup kurdu sürüsü birlikte avlanarak başarıya ulaşırken, yalnız hareket eden kibirli bir hayvan sık sık başarısız olabilir. Misk öküzlerinin yavruları ortaya alarak savunma oluşturması ya da puflaların koloni düzeninde yavrularını koruması da hikâyeye güçlü bir temel sağlar. Fablın çatışması, ‘ben tek başıma daha güçlüyüm’ düşüncesiyle ‘birlikte olursak daha güvendeyiz’ düşüncesi arasında kurulabilir. Böylece öğrenci, dayanışmanın yalnızca yardım etmek değil; zor şartlarda ayakta kalmanın da anahtarı olduğunu fark eder. Hikâyenin sonunda karakter, başkalarıyla uyum içinde hareket etmenin zayıflık değil, bilgelik olduğunu öğrenebilir."
       },
       "besin yönetimi ve sabır": {
         title: "Besin Yönetimi ve Sabır",
-        icon: "🐾",
-        characters: "Beyaz Tilki, Kutup Ayısı veya Kar Baykuşu",
+        icon: "🥣",
+        characters: "🦊 Beyaz Tilki, 🐻‍❄️ Kutup Ayısı veya 🦉 Kar Baykuşu",
         concepts: "Sabır, Ölçülülük, Bekleme, Kaynağı Verimli Kullanma",
         quote: "Gereksiz acele, kıştan önce tükenen yiyecek gibidir.",
-        suggestion: "Bu temada sabırlı davranmanın önemini anlatan bir fabl kurgulayabilirsin. Örneğin bir hayvan bulduğu yiyeceği hemen tüketmek isterken başka bir hayvan daha dikkatli davranıp yiyeceğini saklar ya da doğru zamanı bekler. Zaman geçtikçe sabırsız karakter zor durumda kalırken planlı ve sabırlı olan karakter avantaj kazanır. Hikâyenin sonunda ölçülü davranmanın ve kaynakları dikkatli kullanmanın önemini vurgulayabilirsin."
+        suggestion: "Bu tema için hikâyende bulduğu her fırsatı hemen tüketen, anlık isteklerine yenilen bir karakter ile sabırlı davranan, elindeki kaynakları dikkatli kullanan bir karakteri karşı karşıya getirebilirsin. Beyaz tilkinin yiyecek saklaması, kutup ayısının uzun süre pusu kurarak doğru anı beklemesi ya da kar baykuşunun av için sessizce sabretmesi fabla güçlü örnekler kazandırır. Çatışma, kısa vadeli keyif ile uzun vadeli düşünme arasında kurulabilir. Bir karakter bugün için her şeyi harcarken diğeri zor günleri hesaba katabilir. Böylece öğrenci, sabrın pasif bir bekleyiş değil; geleceği düşünerek akıllı davranma biçimi olduğunu anlayabilir. Fabl sonunda ana ders, akıllı olanın her bulduğunu harcamadığı; doğru zamanı bekleyen ve elindekini ölçülü kullananın sonunda kazandığı düşüncesiyle verilebilir."
       },
       "göç ve hareket": {
         title: "Göç ve Hareket",
         icon: "🪽",
-        characters: "Kutup Sumrusu, Ren Geyiği, Narval veya Pufla",
+        characters: "🐦 Kutup Sumrusu, 🦌 Ren Geyiği, 🐋 Narval veya 🐤 Pufla",
         concepts: "Uyum, Yolculuk, Zamanlama, Dayanıklılık",
         quote: "Bazen ayakta kalmak, yerinde kalmak değil; doğru zamanda yola çıkmaktır.",
-        suggestion: "Bu fablda değişen çevre koşullarına uyum sağlayabilen hayvanların hayatta kaldığını anlatabilirsin. Örneğin kış yaklaşırken bazı hayvanlar daha sıcak bölgelere göç etmeye hazırlanırken başka bir hayvan bulunduğu yeri terk etmek istemez. Hikâye ilerledikçe doğa koşulları zorlaşır ve göç eden hayvanlar avantaj kazanır. Böylece fablın ana fikri değişime uyum sağlayabilmenin hayatta kalmak için önemli olduğu üzerine kurulabilir."
+        suggestion: "Bu temada değişen mevsimlere ve çevre koşullarına uyum sağlayarak hareket eden bir karakter ile bulunduğu yere inatla bağlı kalıp zorlanan bir karakteri karşılaştırabilirsin. Kutup sumrusunun çok uzun göç yolculuğu, ren geyiği sürülerinin güvenli ve besinli alanlara yönelmesi ya da narvalın mevsime göre yer değiştirmesi hikâyene canlı örnekler verir. Fablın merkezinde şu soru olabilir: ‘Aynı yerde kalmak mı daha güvenli, yoksa değişimi fark edip harekete geçmek mi?’ Böyle bir yapı, öğrencilere bazen yer değiştirmenin korkaklık değil; şartları doğru okuyup yenilenme cesareti göstermek olduğunu anlatır. Hikâyenin sonunda karakter, değişime direnenin güç kaybettiğini; doğru zamanda yola çıkanın ise yeni imkânlara ulaştığını öğrenebilir."
       },
       "sessizlik ve enerji yönetimi": {
         title: "Sessizlik ve Enerji Yönetimi",
         icon: "❄️",
-        characters: "Kutup Ayısı, Beyaz Tilki, Kar Baykuşu veya Fok",
+        characters: "🐻‍❄️ Kutup Ayısı, 🦊 Beyaz Tilki, 🦉 Kar Baykuşu veya 🦭 Fok",
         concepts: "Sabır, Ölçülülük, Gereksiz Risk Almama, Sakinlik",
         quote: "Gereksiz hareket, kutbun en büyük düşmanıdır.",
-        suggestion: "Bu temada acele eden ve enerjisini hızlı tüketen bir karakter ile sakin davranıp doğru anı bekleyen bir karakteri karşılaştırabilirsin. Örneğin biri sürekli koşarak av ararken diğeri sabırla bekler ve doğru fırsatı yakalar. Hikâyede sakinlik ve sabrın bazen güçten daha önemli olabileceği vurgulanabilir. Böylece fablın sonunda 'sabırlı olan kazanır' mesajı ortaya çıkar."
+        suggestion: "Bu tema için çok konuşan, acele eden, her an harekette kalmayı marifet sanan bir karakter ile sakinliğini koruyan, doğru zamanı bekleyen ve enerjisini dikkatli kullanan bir hayvanı karşılaştırabilirsin. Kutup ayısının uzun süre sabırla beklemesi, beyaz tilkinin gereksiz hareketlerden kaçınması, kar baykuşunun sessiz avlanması ya da fokun güvenli alanlarda enerji koruması bu tema için çok uygundur. Hikâyede aceleci karakter, gücünü erken tüketebilir; sakin karakter ise sonunda hedefe daha az çabayla ulaşabilir. Böylece öğrenci, sessizliğin ve sakinliğin pasiflik değil; bilinçli bir güç yönetimi olduğunu fark eder. Fablın ana dersi, her an hareket edenin değil; doğru anı bekleyen ve gücünü yerinde kullananın başarılı olduğu düşüncesi etrafında kurulabilir."
       },
       "riskten kaçınma ve çekilme": {
         title: "Riskten Kaçınma ve Çekilme",
         icon: "🛡️",
-        characters: "Fok, Kutup Ayısı, Kutup Tavşanı veya Misk Öküzü",
+        characters: "🦭 Fok, 🐻‍❄️ Kutup Ayısı, 🐇 Kutup Tavşanı veya 🐂 Misk Öküzü",
         concepts: "Temkin, Korunma, Savunma, Geri Çekilme Bilgeliği",
         quote: "Her cesaret ileri atılmak değildir; bazen geri çekilmek akıldır.",
-        suggestion: "Bu fablda tehlikeyi fark eden ve kendini korumayı bilen bir hayvan ile dikkatsiz davranan başka bir hayvanı karşılaştırabilirsin. Örneğin bir karakter yaklaşan bir tehlikeyi sezerek geri çekilirken diğeri tehlikeyi önemsemez. Hikâyenin sonunda temkinli davranan karakter zarar görmekten kurtulur. Böylece fablın ana fikri bazen geri çekilmenin ve dikkatli olmanın gerçek bir bilgelik olduğunu gösterebilir."
+        suggestion: "Bu temada her tehlikeyi meydan okuma fırsatı gibi gören bir karakter ile önce durumu değerlendiren, gerektiğinde saklanan, geri çekilen ya da savunma stratejisi geliştiren bir hayvanı karşılaştırabilirsin. Fokların birden fazla nefes deliği kullanması, kutup tavşanının hızlıca saklanması ya da misk öküzlerinin yavruları korumak için savunma düzeni kurması hikâyene gerçekçi ve güçlü bir temel sağlar. Hikâyede düşünmeden öne atılan karakter zor durumda kalırken, temkinli olan karakter hem kendini hem çevresini koruyabilir. Böylece öğrenci, cesaretin yalnızca ileri gitmek anlamına gelmediğini; bazen kendini korumanın, doğru zamanı beklemenin ve geri çekilmenin de bilgelik olduğunu öğrenir. Fabl sonunda ana mesaj, akıllı olanın tehlikeyi küçümsemeyen, onu tanıyıp uygun davranışı seçen kişi olduğu yönünde verilebilir."
       }
     };
 
@@ -297,7 +542,7 @@
     const resultBox = document.getElementById('resultBox');
     const extraNote = document.getElementById('extraNote');
     const userInput = document.getElementById('userInput');
-    const sendBtn = document.getElementById('sendBtn');
+        const snowLayer = document.getElementById('snowLayer');
 
     function normalize(text){
       return text.toLowerCase()
@@ -311,68 +556,123 @@
     }
 
     function setActive(topic){
-      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.topic === topic));
+      buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.topic === topic);
+      });
     }
 
     function renderTopic(topic){
       const item = guideData[topic];
       if(!item) return;
+
       resultBox.innerHTML = `
-        <h3>${item.icon} ${item.title}</h3>
-        <div><strong>Önerilen Karakterler:</strong> ${item.characters}</div>
-        <div><strong>Temel Kavramlar:</strong> ${item.concepts}</div>
+        <div class="result-head">
+          <h3>${item.icon} ${item.title}</h3>
+          <div class="badge">Fabl Teması</div>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-card">
+            <span class="label">Önerilen Karakterler</span>
+            ${item.characters}
+          </div>
+          <div class="mini-card">
+            <span class="label">Temel Kavramlar</span>
+            ${item.concepts}
+          </div>
+        </div>
         <div class="quote">"${item.quote}"</div>
-        <div><strong>Yazım Önerisi:</strong> ${item.suggestion}</div>
+        <div class="suggestion"><strong>Yazım Önerisi:</strong> ${item.suggestion}</div>
       `;
-      resultBox.classList.add('show');
+
       setActive(topic);
     }
 
     function findTopicFromText(text){
       const n = normalize(text);
+
       for(const key in guideData){
         if(n.includes(normalize(key))) return key;
       }
+
       for(const key in aliases){
         if(n.includes(normalize(key))) return aliases[key];
       }
+
       for(const animal in animalHints){
         if(n.includes(normalize(animal))) return animalHints[animal];
       }
+
       return null;
     }
 
     function handleInput(){
       const text = userInput.value.trim();
+
       if(!text){
-        extraNote.textContent = 'Bir tema ya da hayvan adı yazabilirsin: göç, iş birliği, kutup ayısı, beyaz tilki...';
+        extraNote.textContent = "Bir tema ya da hayvan adı yazabilirsin: kutup ayısı, beyaz tilki, göç, iş birliği, risk...";
         return;
       }
+
       const matched = findTopicFromText(text);
+
       if(matched){
         renderTopic(matched);
-        extraNote.textContent = 'Tema güncellendi.';
-        userInput.value = '';
+        extraNote.textContent = "Tema güncellendi.";
+        userInput.value = "";
         return;
       }
-      extraNote.textContent = 'Tanınan bir tema bulunamadı. Örnek: göç, iş birliği, kutup ayısı, narval.';
-      userInput.value = '';
+
+      const n = normalize(text);
+      if(n.includes('liste') || n.includes('tema')){
+        extraNote.textContent = "Kullanılabilir temalar: yön bulma, iş birliği, besin yönetimi, göç, sessizlik, riskten kaçınma.";
+        userInput.value = "";
+        return;
+      }
+
+      extraNote.textContent = "Tanınan bir tema bulunamadı. Örnek: göç, iş birliği, kutup ayısı, risk.";
+      userInput.value = "";
     }
 
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         renderTopic(btn.dataset.topic);
-        extraNote.textContent = 'Tema güncellendi.';
+        extraNote.textContent = "Tema güncellendi.";
       });
     });
 
-    sendBtn.addEventListener('click', handleInput);
-    userInput.addEventListener('keydown', (e) => {
+        userInput.addEventListener('keydown', (e) => {
       if(e.key === 'Enter' && !e.shiftKey){
         e.preventDefault();
         handleInput();
       }
     });
+
+    userInput.addEventListener('input', () => {
+      const value = userInput.value.trim();
+      if(!value){
+        extraNote.textContent = "Tema ya da hayvan adı yazabilirsin: kutup ayısı, beyaz tilki, göç, iş birliği, risk...";
+        return;
+      }
+      const matched = findTopicFromText(value);
+      if(matched){
+        renderTopic(matched);
+        extraNote.textContent = "Tema otomatik güncellendi.";
+      }
+    });
+
+    const snowSymbols = ['❄','✦','•'];
+    for(let i = 0; i < 22; i++){
+      const flake = document.createElement('span');
+      flake.className = 'snowflake';
+      flake.textContent = snowSymbols[i % snowSymbols.length];
+      flake.style.left = Math.random() * 100 + '%';
+      flake.style.animationDuration = (8 + Math.random() * 8) + 's';
+      flake.style.animationDelay = (Math.random() * 8) + 's';
+      flake.style.fontSize = (8 + Math.random() * 8) + 'px';
+      snowLayer.appendChild(flake);
+    }
+
+    renderTopic('sessizlik ve enerji yönetimi');
   </script>
 </body>
 </html>
